@@ -118,7 +118,6 @@ function createBookCard(book) {
     remove.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(book), 1);
         bookContainer.removeChild(bookCard);
-        console.log(myLibrary);
     });
 
     bookCard.appendChild(buttonContainer);
