@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-container">
+            <div class="header">
+                <h1>library</h1>
+
+                <button class="add" id="add-button">Add Books</button>
+            </div>
+
+            <div class="books">
+                <h2>Your Books</h2>
+                <div class="book-container"></div>
+            </div>
+
+            <div class="footer">
+                <p>
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear())</script>
+                    dhritiman1
+                </p>
+            </div>
+            
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="modal">
+            <form method="get" id="modal-form">
+                <img src="" alt="" class="close">
+                <h2>Add New Book</h2>
+                <div class="input">
+                    <label for="title">Book Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="input">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div class="input">
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" required>
+                </div>
+                <div class="is-read">
+                    <label for="is-read">Have you read it?</label>
+                    <input type="checkbox" id="isRead" value="true" class="checkbox">
+                </div>
+                <div class="error"></div>
+                <button type="button" class="add-book-button">Add Book</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

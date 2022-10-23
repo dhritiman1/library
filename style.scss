@@ -1,0 +1,256 @@
+$accent-100: #e3eef3;
+
+@mixin active-button {
+    &:active {
+        transition: 0s;
+        box-shadow: 1.1px 0.7px 1.9px hsl(240deg 13% 75% / 0.06);
+    }
+}
+
+@mixin button {
+    border: none;
+    border-radius: 6px;
+    background-color: #fff;
+    margin: 10px;
+    box-shadow:
+        1.9px 1.2px 3.4px hsl(240deg 13% 75% / 0.12),
+        3.1px 2px 5.5px hsl(240deg 13% 75% / 0.17);
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        box-shadow: 1.1px 0.7px 1.9px hsl(240deg 13% 75% / 0.06),
+            1.9px 1.2px 3.4px hsl(240deg 13% 75% / 0.12),
+            3.5px 2.3px 6px hsl(240deg 13% 75% / 0.17);
+    }
+
+    @include active-button();
+
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: hsl(240, 100%, 98%);
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.container {
+    height: 100%;
+
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        .header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            background-color: #9494ff;
+            height: max(13vh, 90px);
+            box-shadow: 0px 0.2px 0.2px hsl(240deg 28% 56% / 0.38),
+                0px 0.6px 0.6px -0.7px hsl(240deg 28% 56% / 0.36),
+                0px 1.2px 1.3px -1.4px hsl(240deg 28% 56% / 0.34),
+                -0.1px 2.4px 2.6px -2.1px hsl(240deg 28% 56% / 0.32),
+                -0.2px 4.8px 5.2px -2.8px hsl(240deg 28% 56% / 0.3);
+            ;
+
+            h1 {
+                font-size: 3rem;
+                padding: 0 20px 0 3vw;
+                color: #fff;
+                text-shadow: 6.8px 11.7px 12.3px -3.9px hsl(240deg 51% 53% / 0.71);
+            }
+
+            button {
+                border: none;
+                border-radius: 6px;
+                color: #a7a7ff;
+                background-color: #fff;
+                padding: 3px 20px;
+                cursor: pointer;
+                @include active-button();
+                box-shadow: 0.2px 0.7px 0.6px hsl(240deg 51% 60% / 0.4),
+                    0.3px 0.8px 0.6px -1.2px hsl(240deg 51% 60% / 0.32),
+                    0.7px 2px 1.6px -2.5px hsl(240deg 51% 60% / 0.24),
+                    1.8px 5.1px 4.1px -3.7px hsl(240deg 51% 60% / 0.16),
+                    3.9px 11.1px 8.9px -4.9px hsl(240deg 51% 60% / 0.08);
+            }
+        }
+
+        .books {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                width: 70%;
+                padding-top: 2vh;
+                color: hsl(240, 20%, 43%);
+            }
+
+            .book-container {
+                padding: 4vh 4vw;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+                grid-auto-rows: 1fr;
+                gap: 25px;
+                width: 70%;
+
+                .book-card {
+                    color: hsl(240, 10%, 23%);
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 30px;
+                    align-items: center;
+                    justify-content: space-around;
+                    padding: 20px;
+                    border-radius: 10px;
+                    background-color: hsl(240, 100%, 99%);
+                    box-shadow:
+                        0.3px 0.2px 0.5px hsl(240deg 13% 75% / 0),
+                        1.1px 0.7px 1.9px hsl(240deg 13% 75% / 0.06),
+                        1.9px 1.2px 3.4px hsl(240deg 13% 75% / 0.12),
+                        3.1px 2px 5.5px hsl(240deg 13% 75% / 0.17),
+                        5.3px 3.4px 9.4px hsl(240deg 13% 75% / 0.23);
+
+                    .button-container {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        button {
+                            width: max(10vw, 200px);
+                            @include button();
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(240, 10%, 23%);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 5px;
+        }
+    }
+
+    .modal {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 30vh;
+        left: 40vw;
+
+        form {
+            width: max(260px, 20vw);
+            height: max(370px, 40vh);
+            background-color: hsl(240, 100%, 98%);
+            border-radius: 20px;
+            padding: 3vh 0vw;
+            box-shadow:
+                0.3px 0.2px 0.5px hsl(211deg 13% 75% / 0),
+                1.1px 0.7px 1.9px hsl(211deg 13% 75% / 0.06),
+                1.9px 1.2px 3.4px hsl(211deg 13% 75% / 0.12),
+                3.1px 2px 5.5px hsl(211deg 13% 75% / 0.17),
+                5.3px 3.4px 9.4px hsl(211deg 13% 75% / 0.23);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .input {
+                display: flex;
+                flex-direction: column;
+                width: 70%;
+
+                label {
+                    padding: 5px 0;
+                }
+
+                input[type="text"],
+                input[type="number"] {
+                    font-size: 0.8rem;
+                    opacity: 80%;
+                    padding: 3px 10px;
+                    width: 100%;
+                    border-radius: 7px;
+                    border: none;
+                    outline: none;
+                    margin-bottom: 10px;
+                    transition: 0.3s;
+
+                    &:focus {
+                        opacity: 100%;
+                        box-shadow: 0.3px 0.2px 0.5px hsl(211deg 13% 75% / 0);
+                    }
+                }
+            }
+
+            .is-read {
+
+                input[type="checkbox"] {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 20%;
+                    background: rgb(255, 255, 255);
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    border: none;
+                    outline: none;
+                    position: relative;
+                    top: 1px;
+                    cursor: pointer;
+                }
+
+                input[type="checkbox"]:checked {
+                    background-color: rgb(167, 167, 255);
+                    font-size: 12px;
+                    line-height: 0.8;
+                    color: #fff;
+                    transition: all .27s;
+                }
+
+            }
+
+            .error {
+                color: #ff6666;
+                font-size: 12px;
+                padding: 5px 0;
+            }
+
+            button {
+                width: 12vw;
+                padding: 5px;
+                @include button();
+            }
+        }
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(85, 85, 255);
+        opacity: 4%;
+    }
+
+
+}
